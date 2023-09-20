@@ -92,7 +92,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun encode (data &optional (replacements *char-replacements*))
-  (mapcar (lambda (str) (apply-replacements str replacements))
+  (mapcar (lambda (str) (read-from-string (apply-replacements str replacements)))
    (split-sequence #\space (apply-replacements (string-downcase data)))))
 
 #|
